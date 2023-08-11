@@ -1,5 +1,11 @@
-import { RouterProvider } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
-import { router } from "./routes";
+import { HomePage } from "@/pages";
 
-export const Routing = () => <RouterProvider router={router} />;
+export const Routing = () => {
+  return (
+    <Routes>
+      <Route element={<HomePage />} path="/" />
+    </Routes>
+  );
+};

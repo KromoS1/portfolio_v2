@@ -1,0 +1,13 @@
+@import "@/assets/styles/main.module.scss";
+
+.navbar {
+  @include displayFlex(column, center, center);
+  @include borderStyleNavBottom();
+  width: 100%;
+  min-height: 55%;
+  a {
+    @include linkNav();
+    min-width: 100%;
+    height: 14%;
+  }
+}

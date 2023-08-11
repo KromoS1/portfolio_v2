@@ -1,4 +1,4 @@
-import { Footer } from "@/components";
+import { Footer, SideBar } from "@/components";
 import { AvatarNavBar } from "@/UI";
 
 import style from "./styles.module.scss";
@@ -8,6 +8,7 @@ export function NavBar() {
     <div className={style.navigate}>
       <div className={style.container}>
         <AvatarNavBar />
+        <SideBar />
         <Footer />
       </div>
     </div>
