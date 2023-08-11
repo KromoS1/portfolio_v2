@@ -1,0 +1,32 @@
+@import "@/assets/main-styles.module.scss";
+
+.App {
+  position: relative;
+  min-height: 100vh;
+  z-index: 1;
+  padding-left: 300px;
+
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    padding-left: 0;
+  }
+
+  @media only screen and (max-width: 767px) {
+    padding-left: 0;
+  }
+
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    padding-left: 0;
+  }
+
+  @media only screen and (min-width: 1200px) and (max-width: 1599px) {
+    padding-left: 260px;
+  }
+
+  .Contents {
+    @include displayFlex(column, center, center);
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+    background-color: $ColorContents;
+  }
+}

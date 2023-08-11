@@ -10,6 +10,7 @@ module.exports = {
   settings: {
     'import/resolver': { typescript: {} },
     'boundaries/elements': [
+      { type: 'pages', pattern: 'app/*' },
       { type: 'pages', pattern: 'pages/*' },
       { type: 'module', pattern: 'module/*' },
       { type: 'components', pattern: 'components/*' },
@@ -24,6 +25,8 @@ module.exports = {
         alphabetize: { order: 'asc', caseInsensitive: true },
         'newlines-between': 'always',
         pathGroups: [
+          { group: 'internal', position: 'after', pattern: '@/app/**' },
+          { group: 'internal', position: 'after', pattern: '@/pages/**' },
           { group: 'internal', position: 'after', pattern: '@/module/**' },
           { group: 'internal', position: 'after', pattern: '@/components/**' },
           { group: 'internal', position: 'after', pattern: '@/UI/**' },
@@ -36,6 +39,10 @@ module.exports = {
       'error',
       {
         patterns: [
+          {
+            message: 'Private imports are prohibited from @/pages, use public imports instead',
+            group: ['@/app/**'],
+          },
           {
             message: 'Private imports are prohibited from @/pages, use public imports instead',
             group: ['@/pages/**'],
@@ -51,6 +58,10 @@ module.exports = {
           {
             message: 'Private imports are prohibited from @/pagesLayer, use public imports instead',
             group: ['@/UI/*/**'],
+          },
+          {
+            message: 'Prefer absolute imports instead of relatives (for root modules)',
+            group: ['../**/app'],
           },
           {
             message: 'Prefer absolute imports instead of relatives (for root modules)',
@@ -76,6 +87,10 @@ module.exports = {
       {
         default: 'disallow',
         rules: [
+          {
+            from: 'app',
+            allow: ['pages', 'module', 'components', 'UI'],
+          },
           {
             from: 'pages',
             allow: ['module', 'components', 'UI'],
