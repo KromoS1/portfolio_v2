@@ -5,7 +5,7 @@
   top: 0;
   height: 100%;
   width: 100%;
-  z-index: -1;
+  z-index: 2;
 
   .part {
     position: absolute;
@@ -30,7 +30,7 @@
 
         @media (min-width: 992px) {
           flex: 0 0 auto;
-          width: 83.33333333%;
+          width: 93.33333333%;
         }
 
         .homeContent {
@@ -54,6 +54,10 @@
             font-size: 1.25rem;
             line-height: 2rem;
             margin-bottom: 1rem;
+
+            span {
+              color: $ColorPrimary;
+            }
 
             @include p();
           }

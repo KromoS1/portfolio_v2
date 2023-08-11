@@ -53,6 +53,7 @@
   background: #191d2b;
   border-right: 1px solid #2e344e;
   transition: all 0.4s ease-out;
+  z-index: 2;
 
   .container {
     display: flex;
