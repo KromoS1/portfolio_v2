@@ -1,0 +1,150 @@
+@import "@/assets/styles/main.module.scss";
+
+@mixin linkNav {
+  @include displayFlex(row, center, center);
+  @include link();
+  min-width: 100%;
+  height: 80%;
+  text-transform: uppercase;
+  font-size: 0.94rem;
+  letter-spacing: 1px;
+  padding: 5px 0;
+  transition: all 0.4s ease-out;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  color: $ColorText;
+
+  &:hover,
+  :active,
+  :after {
+    background-color: $ColorPrimary;
+    opacity: 0.6;
+  }
+
+  &:focus {
+    background-color: $ColorPrimary;
+    color: $ColorWhite;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 100%;
+    width: 0;
+    background: rgba(3, 127, 255, 0.2);
+    visibility: hidden;
+    transition: all 0.4s ease-out;
+    z-index: -1;
+  }
+}
+
+@mixin navigateUp {
+  position: absolute;
+  width: 100%;
+  background-color: $ColorBackNav;
+  border-bottom: 1px solid #2e344e;
+  z-index: 2;
+
+  .container {
+    height: 100%;
+
+    .avatar {
+      display: none;
+    }
+
+    .navbar {
+      @include displayFlex(row, "", center);
+      @include borderStyleNavBottom();
+      width: 20%;
+      height: 100%;
+      a {
+        @include linkNav();
+
+        @media screen and (max-width: 364px) {
+          font-size: 0.49rem;
+        }
+
+        @media screen and (min-width: 365px) and (max-width: 489px) {
+          font-size: 0.6rem;
+        }
+
+        @media screen and (min-width: 490px) and (max-width: 640px) {
+          font-size: 0.75rem;
+        }
+      }
+    }
+
+    .footer {
+      display: none;
+    }
+  }
+}
+
+@mixin navigate {
+  display: flex;
+  position: fixed;
+  left: 0;
+  top: 0;
+  transform: translateX(0);
+  height: 100vh;
+  width: 300px;
+  background: #191d2b;
+  border-right: 1px solid #2e344e;
+  transition: all 0.4s ease-out;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid $ColorBorder;
+    width: 100%;
+    height: 100%;
+    background-color: $ColorBackNav;
+    transform: translateX(0);
+    z-index: 10;
+    transition: all 0.4s ease-out;
+
+    .navbar {
+      @include displayFlex(column, center, center);
+      @include borderStyleNavBottom();
+      width: 100%;
+      min-height: 55%;
+      a {
+        @include linkNav();
+        min-width: 100%;
+        height: 14%;
+      }
+    }
+
+    .footer {
+      @include displayFlex(row, center, center);
+      height: 100%;
+      width: 100%;
+      color: $ColorText;
+    }
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .navigate {
+    @include navigateUp();
+  }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1599px) {
+  .navigate {
+    @include navigate();
+    width: 260px;
+  }
+}
+
+@media only screen and (min-width: 1599px) {
+  .navigate {
+    @include navigate();
+    width: 300px;
+  }
+}
