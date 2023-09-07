@@ -9,7 +9,7 @@ import style from "./styles.module.scss";
 export function Home() {
   const el = useRef(null);
 
-  //просто комментарий
+  //просто комментарий 1
   useEffect(() => {
     const typed = new Typed(el.current, {
       strings: ["Roman Shaulinsky", "Full-stack developer"],
