@@ -1,11 +1,5 @@
 module.exports = {
-  extends: [
-    'eslint-config-it-incubator',
-    'plugin:import/errors',
-    'plugin:import/warnings',
-    'plugin:import/typescript',
-    'plugin:boundaries/recommended',
-  ],
+  extends: ['eslint-config-it-incubator', 'plugin:import/errors', 'plugin:import/warnings', 'plugin:import/typescript', 'plugin:boundaries/recommended', 'plugin:storybook/recommended'],
   parser: '@typescript-eslint/parser',
   settings: {
     'import/resolver': { typescript: {} },
